@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+
+<title>BARNKSFORTE INTELLIGENCE</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #07111f;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #26364b;
+    gap: 12px;
+}
+
+.logo {
+    color: #f5c76b;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.free {
+    background: #123c2e;
+    color: #8df0b8;
+    padding: 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.hero {
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 8vw, 48px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.gold {
+    color: #f5c76b;
+}
+
+.hero p {
+    color: #bdc8d8;
+    line-height: 1.8;
+    max-width: 550px;
+    margin: 0 auto 25px;
+}
+
+button {
+    background: #f5c76b;
+    color: #07111f;
+    border: none;
+    padding: 14px 18px;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 15px;
+}
+
+.card {
+    background: #101e30;
+    border: 1px solid #26364b;
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #f5c76b;
+    margin-bottom: 18px;
+    font-size: 21px;
+}
+
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.subject {
+    background: #192b40;
+    padding: 17px 10px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.8;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.subject:hover {
+    border-color: #f5c76b;
+    background: #20364e;
+}
+
+label {
+    display: block;
+    margin: 12px 0 8px;
+    color: #d5dfeb;
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    background: #07111f;
+    border: 1px solid #30445d;
+    color: white;
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+select:focus,
+textarea:focus {
+    outline: 1px solid #f5c76b;
+    border-color: #f5c76b;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+#answer {
+    display: none;
+    white-space: pre-wrap;
+    line-height: 1.9;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+    padding: 18px;
+    background: #07111f;
+    border: 1px solid #26364b;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+.answer-title {
+    display: block;
+    color: #f5c76b;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.note {
+    color: #9eafc4;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 12px;
+}
+
+footer {
+    text-align: center;
+    color: #9eafc4;
+    padding: 30px 15px;
+    line-height: 1.8;
+}
+
+.creator {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #26364b;
+    color: #f5c76b;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.contact {
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid #26364b;
+    font-size: 13px;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+}
+
+.contact a {
+    color: #f5c76b;
+}
+
+@media (max-width: 380px) {
+    header {
+        padding: 14px;
+    }
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .free {
+        font-size: 9px;
+        padding: 7px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    #answer {
+        padding: 13px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        BARNKSFORTE<br>INTELLIGENCE
+    </div>
+
+    <div class="free">100% FREE FOR STUDENTS</div>
+</header>
+
+<section class="hero">
+    <h1>
+        Your Future Begins<br>
+        With <span class="gold">Knowledge.</span>
+    </h1>
+
+    <p>
+        Meet your personal learning assistant.
+        Understand difficult subjects, practise examinations,
+        and improve your knowledge at your own pace.
+        Keep pushing and learn from your mistakes.
+    </p>
+
+    <button onclick="goToTeacher()">
+        Meet Your AI Teacher
+    </button>
+</section>
+
+<main class="container">
+
+    <section class="card">
+        <h2>📚 Explore Subjects</h2>
+
+        <div class="subjects">
+            <div class="subject" onclick="chooseSubject('Mathematics')">
+                📐<br>Mathematics
+            </div>
+
+            <div class="subject" onclick="chooseSubject('English Language')">
+                📖<br>English
+            </div>
+
+            <div class="subject" onclick="chooseSubject('Biology')">
+                🧬<br>Biology
+            </div>
+
+            <div class="subject" onclick="chooseSubject('Chemistry')">
+                ⚗️<br>Chemistry
+            </div>
+
+            <div class="subject" onclick="chooseSubject('Physics')">
+                ⚡<br>Physics
+            </div>
+
+            <div class="subject" onclick="chooseSubject('Literature in English')">
+                📚<br>Literature
+            </div>
+
+            <div class="subject" onclick="chooseSubject('Government')">
+                🇳🇬<br>Government
+            </div>
+
+            <div class="subject" onclick="chooseSubject('Computer Science')">
+                💻<br>Computer Science
+            </div>
+        </div>
+    </section>
+
+    <section class="card" id="teacher">
+        <h2>🤖 Meet Your AI Teacher</h2>
+
+        <label for="level">Choose your learning level</label>
+
+        <select id="level">
+            <option>Primary School</option>
+            <option>Junior Secondary School</option>
+            <option>Senior Secondary School</option>
+            <option>JAMB Preparation</option>
+            <option>WAEC / NECO Preparation</option>
+            <option>University</option>
+            <option>General Learning</option>
+        </select>
+
+        <label for="subject">Choose a subject</label>
+
+        <select id="subject">
+            <option>General Knowledge</option>
+            <option>Mathematics</option>
+            <option>English Language</option>
+            <option>Biology</option>
+            <option>Chemistry</option>
+            <option>Physics</option>
+            <option>Literature in English</option>
+            <option>Government</option>
+            <option>Computer Science</option>
+            <option>Further Mathematics</option>
+            <option>Accounting</option>
+            <option>Civic Education</option>
+            <option>Business Studies</option>
+            <option>CRS/IRS</option>
+            <option>Marketing</option>
+            <option>Geography</option>
+            <option>Physical and Health Education</option>
+            <option>Cultural and Creative Art</option>
+            <option>Agriculture</option>
+        </select>
+
+        <label for="question">
+            What would you like to learn?
+        </label>
+
+        <textarea
+            id="question"
+            placeholder="Example: Teach me number bases step by step..."
+        ></textarea>
+
+        <button id="askButton" onclick="askTeacher()">
+            Ask My Teacher
+        </button>
+
+        <div id="answer" role="status" aria-live="polite"></div>
+
+        <p class="note">
+            Ask BARNKSFORTE INTELLIGENCE anything.
+            We are here to help you.<br>
+            Learning is actually fun.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 BARNKSFORTE INTELLIGENCE<br>
+    Intelligence That Educates. Knowledge That Empowers.<br>
+    Free learning for everyone.
+
+    <div class="creator">
+        Created by 𝑫𝒆𝒗 Clinton
+
+        <div class="contact">
+            Developed by:<br>
+            <a href="mailto:clintonezenwugo@gmail.com">
+                clintonezenwugo@gmail.com
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+// SUPABASE CONNECTION
+// Keep the URL as your deployed Edge Function endpoint.
+
+const AI_TEACHER_URL =
+    "https://dshfbnxvpinrelwlckpg.supabase.co/functions/v1/ai-teacher";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_9-6Fw5-aikoynjaiEDVD2A_fpuU0agJ";
+
+
+// Scroll to the AI Teacher
+function goToTeacher() {
+    document.getElementById("teacher").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+
+// Select a subject from the subject cards
+function chooseSubject(subject) {
+    document.getElementById("subject").value = subject;
+    goToTeacher();
+}
+
+
+// Clean AI formatting without removing useful lists or headings.
+function cleanAIResponse(text) {
+    if (typeof text !== "string") {
+        return "";
+    }
+
+    return text
+        // Remove fenced code-block markers, keeping their contents.
+        .replace(/```[a-zA-Z0-9_-]*\s*\n?/g, "")
+        // Remove bold and italic Markdown markers.
+        .replace(/\*\*(.*?)\*\*/gs, "$1")
+        .replace(/__(.*?)__/gs, "$1")
+        .replace(/(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)/gs, "$1")
+        .replace(/(?<!_)_(?!\s)(.+?)(?<!\s)_(?!_)/gs, "$1")
+        // Convert Markdown headings to plain text.
+        .replace(/^#{1,6}\s+/gm, "")
+        // Convert Markdown links to readable link text.
+        .replace(/([^]+)\](https?:\/\/[^)]+)/g, "$1 ($2)")
+        // Remove stray formatting asterisks.
+        .replace(/^\s*\*{1,3}\s*$/gm, "")
+        // Normalize excessive blank lines.
+        .replace(/\n{3,}/g, "\n\n")
+        .trim();
+}
+
+
+// Display a message safely as plain text.
+function displayAnswer(text) {
+    const answerBox = document.getElementById("answer");
+    answerBox.style.display = "block";
+    answerBox.textContent = text;
+}
+
+
+// Send the student's question to Supabase.
+async function askTeacher() {
+    const questionInput = document.getElementById("question");
+    const level = document.getElementById("level").value;
+    const subject = document.getElementById("subject").value;
+    const button = document.getElementById("askButton");
+
+    const question = questionInput.value.trim();
+
+    if (!question) {
+        displayAnswer("Please enter a question first.");
+        questionInput.focus();
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Teaching you...";
+
+    displayAnswer("Your AI Teacher is thinking...");
+
+    try {
+        const response = await fetch(AI_TEACHER_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "apikey": SUPABASE_PUBLISHABLE_KEY
+            },
+            body: JSON.stringify({
+                question: question,
+                level: level,
+                subject: subject
+            })
+        });
+
+        const responseText = await response.text();
+
+        let data;
+
+        try {
+            data = JSON.parse(responseText);
+        } catch {
+            throw new Error(
+                "The server returned an unexpected response (HTTP " +
+                response.status + ")."
+            );
+        }
+
+        if (!response.ok) {
+            console.error("Supabase response:", data);
+
+            throw new Error(
+                data.details ||
+                data.error ||
+                data.message ||
+                "HTTP " + response.status
+            );
+        }
+
+        if (
+            !data ||
+            typeof data.answer !== "string" ||
+            !data.answer.trim()
+        ) {
+            throw new Error(
+                "The AI function did not return an answer."
+            );
+        }
+
+        const cleanAnswer = cleanAIResponse(data.answer);
+
+        displayAnswer(
+            "BARNKSFORTE INTELLIGENCE\n\n" +
+            "Learning level: " + level + "\n" +
+            "Subject: " + subject + "\n\n" +
+            cleanAnswer
+        );
+
+    } catch (error) {
+        console.error("AI Teacher error:", error);
+
+        displayAnswer(
+            "Sorry, your AI Teacher could not connect.\n\n" +
+            "Error: " + error.message +
+            "\n\nPlease check your internet connection, " +
+            "Supabase function deployment, function permissions, " +
+            "and AI API configuration."
+        );
+
+    } finally {
+        button.disabled = false;
+        button.textContent = "Ask My Teacher";
+    }
+}
+
+
+// Allow students to submit their question using Enter + Ctrl
+document.getElementById("question").addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+            event.preventDefault();
+            askTeacher();
+        }
+    }
+);
+
+</script>
+
+</body>
+      </html>
